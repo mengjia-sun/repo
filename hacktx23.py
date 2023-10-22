@@ -37,7 +37,7 @@ tplist = [('a', 'b', 'c'), ('a', 'd', 'h'), ('a', 'e', 'j'), ('b', 'e', 'i'), ('
 
 st.title("Memory Magic: Hexagon Time!")
 
-st.write('Welcome to Memory Magic: Hexagon Time! Below you will see a hexagon with 19 numeric values. You will mesmorize as many of them as you can, as you will try to sum them to a certain value. Once you are ready, proceed to the next page. A countdown timer will begin, and you will have 1 minute to enter you answer.') 
+st.write('Welcome to Memory Magic: Hexagon Time! Below you will see a hexagon with 19 numeric values. You will memorize as many of them as you can, as you will try to sum them to a certain value. Once you are ready, proceed to the next page. A countdown timer will begin, and you will have 1 minute to enter you answer.') 
 
 from PIL import Image
 st.image(Image.open('123.jpg'))
