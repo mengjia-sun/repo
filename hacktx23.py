@@ -37,11 +37,7 @@ tplist = [('a', 'b', 'c'), ('a', 'd', 'h'), ('a', 'e', 'j'), ('b', 'e', 'i'), ('
 
 st.title("Memory Magic: Hexagon Time!")
 
-st.write('Welcome to Memory Magic: Hexagon Time! Below you will see a hexagon with 19 numeric values. You will mesmorize as many of them as you can, as you will then be shown a corresponding hexagon with letters and try to sum them to the target number. You must state the sequence of letters in the hexagon, not the numbers, that add up to the target number')
-
-st.write('One point will be awarded for every correct answer. However, one point will be deducted for every wrong answer. You win the game once you reach 2 points! You automatically lose if you reach negative points.')
-
-st.write('Once you are ready, proceed to the next page. A countdown timer will begin, and you will have 1 minute to enter you answer.') 
+st.write('Welcome to Memory Magic: Hexagon Time! Below you will see a hexagon with 19 numeric values. You will mesmorize as many of them as you can, as you will try to sum them to a certain value. Once you are ready, proceed to the next page. A countdown timer will begin, and you will have 1 minute to enter you answer.') 
 
 from PIL import Image
 st.image(Image.open('123.jpg'))
@@ -54,6 +50,8 @@ st.button('I am ready, let the game start!')
 
 st.image(Image.open('ABC.jpg'))
 
+count = 0
+wintotal = 2
 
 letters = st.text_input("Enter a sequence of 3 letters (e.g., abc): ").lower()
 
@@ -70,17 +68,23 @@ if st.button("Check Combo"):
                     flag = True
                     if eval(combo[0]) + eval(combo[1]) + eval(combo[2]) == TN:
                         ANSWER = True
+                        count += 1
                     else:
                         ANSWER = False 
+                        count -=1
                     if ANSWER == True:
-                        st.write('You are correct!')
+                        st.write('You are correct! Your score is', count)
                     else:
-                        st.write('WRONG!')
+                        st.write('WRONG! Your score is', count)
         if flag == False:
             st.write('Not a possible combo')
     else:
         st.write("Please enter exactly 3 letters.")
 
+if count < 0:
+    print("Automatic Loss!")
+elif count == wintotal:
+    print("You win! Your score is now", count)
 
 # Get the letters from the user
 letters = input("Enter a sequence of 3 letters (e.g., abc): ")
@@ -106,6 +110,3 @@ if len(letters) == 3:
         print('Not a possible combo')
 else:
     print("Please enter exactly 3 letters.")
-    
-    
-   
