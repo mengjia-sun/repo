@@ -48,7 +48,7 @@ st.button('I am ready, let the game start!')
 
 
 
-st.image(Image.open('ABC.jpg'))
+st.image(Image.open('ABC.JPG'))
 
 count = 0
 wintotal = 2
